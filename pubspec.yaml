@@ -1,0 +1,21 @@
+name: islamic_wisdom_app_final
+description: Islamic Wisdom App - Dual Quran Edition (scaffold)
+version: 1.0.0+1
+environment:
+  sdk: ">=2.18.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo.png
+    - assets/images/icon.png
+    - assets/quran_data/

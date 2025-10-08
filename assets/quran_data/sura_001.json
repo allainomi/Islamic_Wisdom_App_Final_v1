@@ -1,0 +1,55 @@
+{
+  "sura": 1,
+  "name_ar": "الفاتحة",
+  "name_ur": "الفاتحہ",
+  "ayahs": [
+    {
+      "index": 1,
+      "arabic": "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
+      "translation_ur": "شروع اللہ کے نام سے جو بڑا مہربان نہایت رحم والا ہے",
+      "translation_en": "In the name of Allah, the Entirely Merciful, the Especially Merciful."
+    },
+    {
+      "index": 2,
+      "arabic": "الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ",
+      "translation_ur": "سب تعریفیں اللہ ہی کے لیے ہیں جو سارے جہانوں کا پروردگار ہے",
+      "translation_en": "[All] praise is [due] to Allah, Lord of the worlds -"
+    },
+    {
+      "index": 3,
+      "arabic": "الرَّحْمَٰنِ الرَّحِيمِ",
+      "translation_ur": "بہت مہربان، نہایت رحم والا",
+      "translation_en": "The Entirely Merciful, the Especially Merciful,"
+    },
+    {
+      "index": 4,
+      "arabic": "مَالِكِ يَوْمِ الدِّينِ",
+      "translation_ur": "روزِ جزا کا مالک",
+      "translation_en": "Sovereign of the Day of Recompense."
+    },
+    {
+      "index": 5,
+      "arabic": "إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ",
+      "translation_ur": "ہم فقط تیری ہی عبادت کرتے ہیں اور تجھی ہی سے مدد مانگتے ہیں",
+      "translation_en": "It is You we worship and You we ask for help."
+    },
+    {
+      "index": 6,
+      "arabic": "اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ",
+      "translation_ur": "ہمیں سیدھا راستہ دکھا",
+      "translation_en": "Guide us to the straight path -"
+    },
+    {
+      "index": 7,
+      "arabic": "صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ",
+      "translation_ur": "اُن لوگوں کا راستہ جن پر تو نے انعام فرمایا",
+      "translation_en": "The path of those upon whom You have bestowed favor,"
+    },
+    {
+      "index": 7,
+      "arabic": "غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ",
+      "translation_ur": "جو تیرے غضب کا نشانہ نہیں ہوئے اور جو گمراہ نہیں ہوئے",
+      "translation_en": "not of those who have evoked [Your] anger or of those who are astray."
+    }
+  ]
+}

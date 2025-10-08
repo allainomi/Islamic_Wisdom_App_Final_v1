@@ -1,0 +1,25 @@
+{
+  "sura": 2,
+  "name_ar": "البقرة",
+  "name_ur": "البقرۃ",
+  "ayahs": [
+    {
+      "index": 1,
+      "arabic": "الم",
+      "translation_ur": "الم",
+      "translation_en": "Alif, Lam, Meem."
+    },
+    {
+      "index": 2,
+      "arabic": "ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ",
+      "translation_ur": "یہ کتاب ہے جس میں کوئی شک نہیں ہے",
+      "translation_en": "This is the Book about which there is no doubt,"
+    },
+    {
+      "index": 3,
+      "arabic": "هُدًى لِّلْمُتَّقِينَ",
+      "translation_ur": "پرہیزگاری کرنے والوں کے لئے ہدایت ہے",
+      "translation_en": "A guidance for those conscious of Allah - "
+    }
+  ]
+}

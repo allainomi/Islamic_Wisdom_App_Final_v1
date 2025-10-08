@@ -21,4 +21,11 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Build Universal APK (for all Android devices
+      - name: Build Universal APK (for all Android devices)
+        run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64
+
+      - name: Upload Universal APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Islamic_Wisdom_App_Final_v1_Universal
+          path: build/app/outputs/flutter-apk/app-release.apk

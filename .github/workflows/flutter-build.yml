@@ -1,4 +1,4 @@
-name: Flutter Easy Build APK
+name: Flutter Auto Gradle Fix Build
 
 on:
   push:
@@ -18,24 +18,19 @@ jobs:
         with:
           flutter-version: '3.19.0'
 
-      # ✅ Auto create Gradle project (fixes "unsupported Gradle" error)
-      - name: Create fresh Flutter project
+      # ✅ Gradle auto-fix: create new project, move your files
+      - name: Auto Fix Unsupported Gradle
         run: |
-          flutter create -t app temp_project
-          cp -r lib assets pubspec.yaml temp_project/
-          cd temp_project
+          flutter create -t app fixed_app
+          cp -r lib assets pubspec.yaml fixed_app/
+          cd fixed_app
+          flutter pub get
+          flutter build apk --release --target-platform android-arm,android-arm64,android-x64
+          mv build ../build
 
-      # ✅ Install dependencies
-      - name: Get dependencies
-        run: cd temp_project && flutter pub get
-
-      # ✅ Build universal APK
-      - name: Build Universal APK
-        run: cd temp_project && flutter build apk --release --target-platform android-arm,android-arm64,android-x64
-
-      # ✅ Upload ready APK
-      - name: Upload APK Artifact
+      # ✅ Upload final APK
+      - name: Upload Fixed APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Islamic_Wisdom_App_Ready
-          path: temp_project/build/app/outputs/flutter-apk/app-release.apk
+          name: Islamic_Wisdom_App_Fixed_Universal
+          path: build/app/outputs/flutter-apk/app-release.apk

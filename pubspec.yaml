@@ -1,21 +1,48 @@
-name: islamic_wisdom_app_final
-description: Islamic Wisdom App - Dual Quran Edition (scaffold)
-version: 1.0.0+1
+name: iqra_islamic_wisdom
+description: >
+  Iqra — Islamic Wisdom App: A complete Islamic learning app featuring Quran, Hadith,
+  Islamic teachings, and inspirational guidance by Mufti Muhammad Shoaib Khan Alai.
+publish_to: "none"
+version: 3.2.0+1
+
 environment:
-  sdk: ">=2.18.0 <4.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.2.1
+  url_launcher: ^6.3.0
+  shared_preferences: ^2.2.2
+  provider: ^6.1.2
+  flutter_svg: ^2.0.10
+  http: ^1.2.1
+  intl: ^0.19.0
+  audioplayers: ^6.1.0
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^4.0.0
 
 flutter:
+
   uses-material-design: true
+
   assets:
-    - assets/images/logo.png
-    - assets/images/icon.png
+    - assets/images/
+    - assets/audio/
+    - assets/fonts/
     - assets/quran_data/
+    - assets/pubspec.yaml
+
+  fonts:
+    - family: PremiumNastaliq
+      fonts:
+        - asset: assets/fonts/PremiumNastaliq.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf

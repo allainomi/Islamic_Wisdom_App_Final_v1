@@ -1,10 +1,21 @@
-name: Flutter Build
+name: Build APK
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: cirrusci/flutter:stable
-      
     steps:
-      - uses: actions/check
+      - uses: actions/checkout@v4
+      - run: |
+          git clone https://github.com/flutter/flutter.git -b stable
+          export PATH="$PATH:$GITHUB_WORKSPACE/flutter/bin"
+          
+          flutter create --platforms android app
+          cd app
+          
+          # Split APK build karen (lightweight)
+          flutter build apk --split-per-abi --release
+        
+      - uses: actions/upload-artifact@v4
+        with:
+          name: split-apks
+          path: app/build/app/outputs/apk/release/

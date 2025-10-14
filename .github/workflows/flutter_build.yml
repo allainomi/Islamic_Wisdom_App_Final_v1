@@ -11,25 +11,24 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2.10.0
         
-      - name: Create New Flutter Project
+      - name: Clean and Recreate Project
         run: |
-          # نیا Flutter project بنائیں
-          flutter create --org com.iqra --platforms android new_iqra_app
-          cd new_iqra_app
-          
-          # موجودہ code کو نئے project میں کاپی کریں
-          cp -r ../lib/* lib/ 2>/dev/null || true
-          cp -r ../assets/* assets/ 2>/dev/null || true
-          cp ../pubspec.yaml ./ 2>/dev/null || true
-          
-      - name: Build APK
-        run: |
-          cd new_iqra_app
+          # مکمل صفائی
           flutter clean
-          flutter pub get
-          flutter build apk --release
+          rm -rf android
+          rm -rf ios
+          rm -rf build
+          
+          # نیا project بنائیں
+          flutter create --platforms android --org com.iqra .
+          
+      - name: Install Dependencies
+        run: flutter pub get
+        
+      - name: Build with Debug Info
+        run: flutter build apk --release --verbose
         
       - uses: actions/upload-artifact@v4
         with:
-          name: iqra-islamic-app
-          path: new_iqra_app/build/app/outputs/flutter-apk/app-release.apk
+          name: iqra-app
+          path: build/app/outputs/flutter-apk/app-release.apk

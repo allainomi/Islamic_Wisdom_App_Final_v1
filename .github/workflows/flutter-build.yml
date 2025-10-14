@@ -1,36 +1,10 @@
-name: Flutter Auto Gradle Fix Build
-
-on:
-  push:
-    branches:
-      - main
-
+name: Flutter Build
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    container:
+      image: cirrusci/flutter:stable
+      
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.19.0'
-
-      # ✅ Gradle auto-fix: create new project, move your files
-      - name: Auto Fix Unsupported Gradle
-        run: |
-          flutter create -t app fixed_app
-          cp -r lib assets pubspec.yaml fixed_app/
-          cd fixed_app
-          flutter pub get
-          flutter build apk --release --target-platform android-arm,android-arm64,android-x64
-          mv build ../build
-
-      # ✅ Upload final APK
-      - name: Upload Fixed APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Islamic_Wisdom_App_Fixed_Universal
-          path: build/app/outputs/flutter-apk/app-release.apk
+      - uses: actions/check

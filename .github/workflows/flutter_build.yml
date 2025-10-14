@@ -1,35 +1,24 @@
-.github/workflows/flutter_build.yml
-name: Flutter Build & Auto Release
+name: Flutter Build
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2.10.0
+        
+      - name: Fix SDK Version
+        run: |
+          sed -i 's/sdk:.*>=3.4.0.*/sdk: ">=3.0.0 <4.0.0"/g' pubspec.yaml
+          
+      - name: Build APK
+        run: flutter build apk --release
+        
+      - uses: actions/upload-artifact@v4
         with:
-          flutter-version: '3.24.0'
-          channel: stable
-
-      - name: Get dependencies
-        run: flutter pub get
-
-      - name: Build release APK
-        run: flutter build apk --release --target-platform android-arm,android-arm64,android-x64
-
-      - name: Upload Release APK to GitHub Releases
-        uses: softprops/action-gh-release@v2
-        with:
-          files: build/app/outputs/flutter-apk/app-release.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
